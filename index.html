@@ -3,30 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rendapê - O atalho para o seu primeiro apê</title>
+    <title>Rendapê - Helbor Collage Bela Vista</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --cor-principal: #7A5CFA; /* Roxo da logo */
-            --cor-fundo: #1A1A2E; /* Azul escuro/preto */
+            --cor-principal: #7A5CFA;
+            --cor-fundo: #1A1A2E;
+            --cor-card: #162447;
             --cor-texto: #E0E0E0;
             --cor-texto-secundario: #A0A0B0;
+        }
+        html {
+            scroll-behavior: smooth;
         }
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--cor-fundo);
             color: var(--cor-texto);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
+        }
+        .text-accent { color: var(--cor-principal); }
+        .card {
+            background-color: var(--cor-card);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 0.75rem;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        /* Animation styles */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Carousel Styles */
+        .carousel-slide {
+            flex-shrink: 0;
+            width: 100%;
+            transition: opacity 1s ease-in-out;
         }
     </style>
 </head>
 <body class="p-4 sm:p-6">
 
-    <div class="max-w-4xl mx-auto text-center">
+    <!-- Seção de Introdução -->
+    <div class="max-w-4xl min-h-screen mx-auto text-center flex flex-col justify-center">
         <header class="mb-12 flex items-center justify-center space-x-3 sm:space-x-4">
             <img src="https://rendape.com.br/wp-content/uploads/2025/07/RendapeIcon.png" alt="Símbolo Rendapê" class="h-12 sm:h-14">
             <span class="text-4xl sm:text-5xl font-bold text-[var(--cor-principal)]">Rendapê</span>
@@ -45,8 +86,208 @@
                 Enquanto muitos enxergam barreiras, nós criamos pontes. Cuidamos da entrada e oferecemos um jeito acessível e parcelado para você dar o próximo passo. Com a Rendapê, você não precisa esperar anos para juntar, pode começar agora. Seu apê, sua história, sua conquista.
             </p>
         </main>
+        
+        <footer class="mt-16 animate-bounce">
+            <a href="#property-section" class="text-gray-400 text-sm">
+                <i class="fas fa-chevron-down text-2xl"></i>
+                <p class="mt-2">Role para conhecer o empreendimento</p>
+            </a>
+        </footer>
+    </div>
+    
+    <!-- Seção do Imóvel -->
+    <section id="property-section" class="max-w-7xl mx-auto mt-16 space-y-12 fade-in-section">
+        
+        <div class="text-center space-y-4">
+             <h1 class="text-4xl md:text-6xl font-extrabold text-white">Helbor Collage <span class="text-accent">Bela Vista</span></h1>
+             <div class="flex items-center justify-center space-x-6 text-[var(--cor-texto-secundario)]">
+                <span><i class="fas fa-signal text-accent mr-2"></i>Status: Lançamento</span>
+                <span><i class="fas fa-calendar-alt text-accent mr-2"></i>Entrega: 03/2029</span>
+                <span><i class="fas fa-ruler-combined text-accent mr-2"></i>A partir de 26m²</span>
+             </div>
+        </div>
+
+        <div class="card">
+             <h2 class="text-2xl font-bold text-white mb-4">Galeria</h2>
+             <div id="carousel-container" class="relative w-full h-96 overflow-hidden rounded-lg">
+                <!-- Imagens serão injetadas pelo JS -->
+             </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+            <div class="space-y-8">
+                <div class="card space-y-4">
+                    <p class="text-lg leading-relaxed">O Helbor Collage Bela Vista é um empreendimento urbano, moderno e sustentável, projetado para atender o público contemporâneo e o investidor que busca alta liquidez e rentabilidade em locações de curta duração (short stay).</p>
+                    <p class="text-lg leading-relaxed text-[var(--cor-texto-secundario)]">Com arquitetura assinada pela Marchi Arquitetura, paisagismo de Benedito Abbud e interiores de Silvia Aguiar, o Collage combina arte, mobilidade e eficiência energética no coração de São Paulo.</p>
+                </div>
+                <div class="card">
+                    <h2 class="text-2xl font-bold text-white mb-4">Geradores de Demanda</h2>
+                    <ul class="space-y-3">
+                        <li class="flex items-start"><i class="fas fa-map-marker-alt icon mt-1 mr-3"></i><span>**Localização estratégica:** a poucos metros da Av. Paulista e da estação Brigadeiro do Metrô.</span></li>
+                        <li class="flex items-start"><i class="fas fa-briefcase icon mt-1 mr-3"></i><span>**Centro financeiro e turístico:** forte demanda por executivos, estudantes e turistas.</span></li>
+                        <li class="flex items-start"><i class="fas fa-hospital icon mt-1 mr-3"></i><span>**Proximidade a hospitais e universidades:** Sírio-Libanês, Beneficência Portuguesa, FGV e Mackenzie.</span></li>
+                        <li class="flex items-start"><i class="fas fa-building icon mt-1 mr-3"></i><span>**Alta densidade de escritórios e coworkings:** público corporativo e de eventos constante.</span></li>
+                        <li class="flex items-start"><i class="fas fa-utensils icon mt-1 mr-3"></i><span>**Vasto polo gastronômico e cultural:** teatros, restaurantes e vida noturna ativa.</span></li>
+                        <li class="flex items-start"><i class="fas fa-car icon mt-1 mr-3"></i><span>**Mobilidade:** fácil acesso às avenidas 23 de Maio, 9 de Julho e Rebouças.</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="space-y-8">
+                <div class="card text-center">
+                    <h2 class="text-2xl font-bold text-white mb-2">Projeção de Rendimento</h2>
+                    <p class="text-4xl font-extrabold text-accent">R$ 7.040,00</p>
+                    <p class="text-sm text-[var(--cor-texto-secundario)]">Faturamento bruto mensal</p>
+                    <div class="mt-4 pt-4 border-t border-white/10 text-left">
+                        <p><span class="font-bold">Diária média:</span> R$ 320,00</p>
+                        <p class="text-xs text-[var(--cor-texto-secundario)] mt-1">Considerando taxa de ocupação de 75%.</p>
+                    </div>
+                </div>
+                <div class="card">
+                     <h2 class="text-2xl font-bold text-white mb-4">Ficha Técnica</h2>
+                     <ul class="space-y-2 text-sm">
+                        <li><span class="font-bold">Endereço:</span> Av. Brigadeiro Luís Antônio, 502 - Bela Vista, São Paulo - SP, 01318-000</li>
+                        <li><span class="font-bold">Tipologia:</span> Studios</li>
+                        <li><span class="font-bold">Incorporadora:</span> Helbor Incorporadora</li>
+                     </ul>
+                </div>
+                <div class="card">
+                    <h2 class="text-2xl font-bold text-white mb-4">Planta</h2>
+                    <img src="https://corretoron.com.br/admin/images/_PRODUTOS/SaoPaulo/HelborCollage/galeria/plantas/planta_studio_26m_helbor_collage.jpg" alt="Planta do Studio 26m²" class="w-full object-contain rounded-lg border-2 border-gray-700 cursor-pointer" data-action="open-lightbox-single" data-src="https://corretoron.com.br/admin/images/_PRODUTOS/SaoPaulo/HelborCollage/galeria/plantas/planta_studio_26m_helbor_collage.jpg">
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 class="text-2xl font-bold text-white mb-4">Localização</h2>
+            <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden border-2 border-gray-700">
+                <iframe class="w-full h-full" style="border:0;" loading="lazy" allowfullscreen src="https://maps.google.com/maps?q=Av.%20Brigadeiro%20Lu%C3%ADs%20Ant%C3%B4nio%2C%20502%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001318-000&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+            </div>
+        </div>
+        
+         <div class="card">
+            <h2 class="text-2xl font-bold text-white mb-4">Vídeo do Empreendimento</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/QiXKz3Sbz5w" title="Vídeo do YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="card text-center">
+             <h2 class="text-2xl font-bold text-white mb-4">Conheça mais detalhes</h2>
+             <a href="https://corretoron.com.br/admin/images/_PRODUTOS/SaoPaulo/HelborCollage/paper/Book_Helbor_Collage.pdf" target="_blank" class="inline-block bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-purple-500 transition-colors">
+                Acessar o Book do Imóvel
+             </a>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4 z-50 hidden">
+        <button id="close-lightbox-btn" class="absolute top-4 right-6 text-white text-5xl font-bold z-10">&times;</button>
+        <button id="prev-lightbox-btn" class="absolute left-4 text-white text-4xl font-bold p-4">&#10094;</button>
+        <img id="lightbox-image" src="" alt="Imagem ampliada" class="max-w-[90vw] max-h-[90vh] object-contain">
+        <button id="next-lightbox-btn" class="absolute right-4 text-white text-4xl font-bold p-4">&#10095;</button>
     </div>
 
+    <script>
+        const images = [
+            "https://corretoron.com.br/admin/images/_PRODUTOS/SaoPaulo/HelborCollage/galeria/fotos/01persp_collage_bela_vista_fachada.jpg",
+            "https://corretoron.com.br/admin/images/_PRODUTOS/SaoPaulo/HelborCollage/galeria/fotos/02persp_collage_bela_vista_acesso_residencial.jpg",
+            "https://corretoron.com.br/admin/images/_PRODUTOS/SaoPaulo/HelborCollage/galeria/fotos/02persp_collage_bela_vista_embasamento.jpg",
+            "https://corretoron.com.br/admin/images/_PRODUTOS/SaoPaulo/HelborCollage/galeria/fotos/03persp_collage_bela_vista_hall.jpg",
+            "https://corretoron.com.br/admin/images/_PRODUTOS/SaoPaulo/HelborCollage/galeria/fotos/03persp_collage_bela_vista_piscina.jpg",
+            "https://corretoron.com.br/admin/images/_PRODUTOS/SaoPaulo/HelborCollage/galeria/fotos/04persp_collage_bela_vista_lounge_apoio_jogos.jpg",
+            "https://corretoron.com.br/admin/images/_PRODUTOS/SaoPaulo/HelborCollage/galeria/fotos/05persp_collage_bela_vista_lounge.jpg",
+            "https://corretoron.com.br/admin/images/_PRODUTOS/SaoPaulo/HelborCollage/galeria/fotos/06persp_collage_bela_vista_praca_apoio_lounge_festas.jpg",
+            "https://corretoron.com.br/admin/images/_PRODUTOS/SaoPaulo/HelborCollage/galeria/fotos/07persp_collage_bela_vista_sala_de_jogos.jpg",
+            "https://corretoron.com.br/admin/images/_PRODUTOS/SaoPaulo/HelborCollage/galeria/fotos/08persp_collage_bela_vista_brinquedoteca.jpg",
+            "https://corretoron.com.br/admin/images/_PRODUTOS/SaoPaulo/HelborCollage/galeria/fotos/09persp_collage_bela_vista_coworking.jpg",
+            "https://corretoron.com.br/admin/images/_PRODUTOS/SaoPaulo/HelborCollage/galeria/fotos/10persp_collage_bela_vista_delivery.jpg",
+            "https://corretoron.com.br/admin/images/_PRODUTOS/SaoPaulo/HelborCollage/galeria/fotos/11persp_collage_bela_vista_fitness.jpg",
+            "https://corretoron.com.br/admin/images/_PRODUTOS/SaoPaulo/HelborCollage/galeria/fotos/12persp_collage_bela_vista_lavanderia.jpg",
+            "https://corretoron.com.br/admin/images/_PRODUTOS/SaoPaulo/HelborCollage/galeria/fotos/13persp_collage_bela_vista_lounge_externo_com_lareira.jpg",
+            "https://corretoron.com.br/admin/images/_PRODUTOS/SaoPaulo/HelborCollage/galeria/fotos/14persp_collage_bela_vista_lounge_gourmet.jpg",
+            "https://corretoron.com.br/admin/images/_PRODUTOS/SaoPaulo/HelborCollage/galeria/fotos/15persp_collage_bela_vista_bicicletario.jpg",
+            "https://corretoron.com.br/admin/images/_PRODUTOS/SaoPaulo/HelborCollage/galeria/fotos/persp_collage_bela_vista_1dormitorio.jpg",
+            "https://corretoron.com.br/admin/images/_PRODUTOS/SaoPaulo/HelborCollage/galeria/fotos/persp_collage_bela_vista_studio.jpg"
+        ];
+        
+        let currentImageIndex = 0;
+        const carouselContainer = document.getElementById('carousel-container');
+
+        images.forEach((src, index) => {
+            const img = document.createElement('img');
+            img.src = src;
+            img.className = 'carousel-slide absolute top-0 left-0 w-full h-full object-cover cursor-pointer';
+            img.style.opacity = index === 0 ? '1' : '0';
+            img.dataset.action = 'open-lightbox';
+            img.dataset.index = index;
+            carouselContainer.appendChild(img);
+        });
+        
+        setInterval(() => {
+            const slides = carouselContainer.querySelectorAll('.carousel-slide');
+            slides[currentImageIndex].style.opacity = '0';
+            currentImageIndex = (currentImageIndex + 1) % slides.length;
+            slides[currentImageIndex].style.opacity = '1';
+        }, 4000);
+
+        // Animation on scroll
+        const section = document.querySelector('.fade-in-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        observer.observe(section);
+
+        // Lightbox logic
+        const lightboxModal = document.getElementById('lightbox-modal');
+        const closeLightboxBtn = document.getElementById('close-lightbox-btn');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const prevLightboxBtn = document.getElementById('prev-lightbox-btn');
+        const nextLightboxBtn = document.getElementById('next-lightbox-btn');
+        let currentLightboxIndex = 0;
+        let lightboxImageUrls = [];
+
+        function showLightboxImage(index) {
+            if (index < 0 || index >= lightboxImageUrls.length) return;
+            currentLightboxIndex = index;
+            lightboxImage.src = lightboxImageUrls[index];
+            prevLightboxBtn.style.display = index === 0 ? 'none' : 'block';
+            nextLightboxBtn.style.display = index === lightboxImageUrls.length - 1 ? 'none' : 'block';
+        }
+
+        function openLightbox(startIndex, urls) {
+            if (!urls || urls.length === 0) return;
+            lightboxImageUrls = urls;
+            showLightboxImage(startIndex);
+            lightboxModal.classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            lightboxModal.classList.add('hidden');
+        }
+
+        document.addEventListener('click', (e) => {
+            const target = e.target.closest('[data-action]');
+            if (!target) return;
+
+            if (target.dataset.action === 'open-lightbox') {
+                openLightbox(parseInt(target.dataset.index, 10), images);
+            }
+            if (target.dataset.action === 'open-lightbox-single') {
+                openLightbox(0, [target.dataset.src]);
+            }
+        });
+
+        closeLightboxBtn.addEventListener('click', closeLightbox);
+        prevLightboxBtn.addEventListener('click', () => showLightboxImage(currentLightboxIndex - 1));
+        nextLightboxBtn.addEventListener('click', () => showLightboxImage(currentLightboxIndex + 1));
+        lightboxModal.addEventListener('click', (e) => {
+            if(e.target === lightboxModal) closeLightbox();
+        });
+    </script>
 </body>
 </html>
 
