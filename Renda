@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rendapê - O atalho para o seu primeiro apê</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cor-principal: #7A5CFA; /* Roxo da logo */
+            --cor-fundo: #1A1A2E; /* Azul escuro/preto */
+            --cor-texto: #E0E0E0;
+            --cor-texto-secundario: #A0A0B0;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-6">
+
+    <div class="max-w-4xl mx-auto text-center">
+        <header class="mb-12 flex items-center justify-center space-x-3 sm:space-x-4">
+            <img src="https://rendape.com.br/wp-content/uploads/2025/07/RendapeIcon.png" alt="Símbolo Rendapê" class="h-12 sm:h-14">
+            <span class="text-4xl sm:text-5xl font-bold text-[var(--cor-principal)]">Rendapê</span>
+        </header>
+
+        <main class="space-y-6">
+            <h2 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">
+                O <span class="text-[var(--cor-principal)]">atalho mais acessível</span> para o seu primeiro apê.
+            </h2>
+            
+            <p class="text-lg md:text-xl text-[var(--cor-texto-secundario)] max-w-3xl mx-auto">
+                Chega de deixar o sonho da casa própria para depois. A Rendapê existe para simplificar esse caminho e <strong>aproximar você da conquista do seu primeiro apartamento.</strong>
+            </p>
+            
+            <p class="text-md text-[var(--cor-texto-secundario)] max-w-2xl mx-auto pt-4">
+                Enquanto muitos enxergam barreiras, nós criamos pontes. Cuidamos da entrada e oferecemos um jeito acessível e parcelado para você dar o próximo passo. Com a Rendapê, você não precisa esperar anos para juntar, pode começar agora. Seu apê, sua história, sua conquista.
+            </p>
+        </main>
+    </div>
+
+</body>
+</html>
+
