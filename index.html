@@ -96,6 +96,35 @@
             width: 20px;
             border-radius: 5px;
         }
+
+        /* Table styles for Risk Analysis */
+        .risk-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+        .risk-table th, .risk-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .risk-table th {
+            background-color: #2a2a47;
+            font-weight: 600;
+            color: var(--cor-texto-secundario);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+        .risk-table td {
+            color: var(--cor-texto);
+        }
+        .risk-table tr:hover {
+            background-color: rgba(255, 255, 255, 0.03);
+        }
+        .risk-table .text-low-risk { color: #84cc16; } /* green-500 */
+        .risk-table .text-medium-risk { color: #facc15; } /* yellow-400 */
+        .risk-table .text-high-risk { color: #ef4444; } /* red-500 */
+        .risk-table .text-positive { color: #3b82f6; } /* blue-500 */
     </style>
 </head>
 <body class="p-4 sm:p-6">
@@ -108,22 +137,21 @@
 
         <main class="space-y-6 fade-in-item is-visible" style="--delay: 0.2s;">
             <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">
-                O <span class="text-[var(--cor-principal)]">atalho mais acessível</span> para o seu primeiro apê.
+                A maneira mais fácil de você comprar seu imóvel sem entrada é só pagando <span class="text-[var(--cor-principal)]">parcelinhas fixas.</span>
             </h1>
             <p class="text-lg md:text-xl text-[var(--cor-texto-secundario)] max-w-3xl mx-auto">
-                Chega de deixar o sonho da casa própria para depois. A Rendapê existe para simplificar esse caminho e <strong>aproximar você da conquista do seu primeiro apartamento.</strong>
+                Imagine cada imóvel deixar para você em média de R$5.000 a R$10.000 por mês.
             </p>
         </main>
         
         <footer class="mt-16 animate-bounce fade-in-item is-visible" style="--delay: 0.4s;">
             <a href="#property-section" class="text-gray-400 text-sm">
                 <i class="fas fa-chevron-down text-2xl"></i>
-                <p class="mt-2">Role para conhecer o empreendimento</p>
             </a>
         </footer>
     </div>
     
-    <section id="property-section" class="max-w-7xl mx-auto mt-16 space-y-12">
+    <!-- Seção do Imóvel --><section id="property-section" class="max-w-7xl mx-auto mt-16 space-y-12">
         
         <div class="text-center space-y-4 fade-in-item">
              <h1 class="text-4xl md:text-6xl font-extrabold text-white">Helbor Collage <span class="text-accent">Bela Vista</span></h1>
@@ -137,8 +165,7 @@
         <div class="fade-in-item">
              <div class="swiper-container my-swiper">
                 <div class="swiper-wrapper" id="carousel-wrapper">
-                    <!-- Imagens serão injetadas pelo JS -->
-                </div>
+                    <!-- Imagens serão injetadas pelo JS --></div>
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
@@ -168,14 +195,42 @@
 
         <div class="card fade-in-item">
             <h2 class="text-3xl font-bold text-white mb-6 text-center">Geradores de Demanda</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
-                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-map-marker-alt text-accent text-4xl"></i><p>Localização Estratégica</p></div>
-                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-briefcase text-accent text-4xl"></i><p>Polo Financeiro</p></div>
-                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-hospital text-accent text-4xl"></i><p>Saúde & Educação</p></div>
-                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-building text-accent text-4xl"></i><p>Coworkings</p></div>
-                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-utensils text-accent text-4xl"></i><p>Gastronomia</p></div>
-                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-car text-accent text-4xl"></i><p>Alta Mobilidade</p></div>
+            <p class="text-lg text-[var(--cor-texto-secundario)] mb-6">A Bela Vista é um epicentro de atividades que atraem um fluxo constante de pessoas, ideal para locações de curta e média duração:</p>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
+                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-university text-accent text-4xl"></i><p>Universidades (FGV, FMU, Mackenzie)</p></div>
+                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-hospital text-accent text-4xl"></i><p>Hospitais (9 de Julho, Sírio-Libanês)</p></div>
+                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-subway text-accent text-4xl"></i><p>Metrô Trianon-Masp & Brigadeiro</p></div>
+                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-building text-accent text-4xl"></i><p>Avenida Paulista (eixo corporativo)</p></div>
+                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-theater-mask text-accent text-4xl"></i><p>Teatros (Ruth Escobar, Renault)</p></div>
+                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-store text-accent text-4xl"></i><p>Comércio da 25 de Março</p></div>
+                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-cocktail text-accent text-4xl"></i><p>Vida Noturna (Bixiga)</p>
+                </div>
+                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-palette text-accent text-4xl"></i><p>Museus e Centros Culturais</p></div>
             </div>
+        </div>
+        
+        <div class="card fade-in-item">
+            <h2 class="text-3xl font-bold text-white mb-6 text-center">Eventos Âncora e Golden Events</h2>
+            <p class="text-lg text-[var(--cor-texto-secundario)] mb-6">A região é palco de grandes eventos e possui instituições que garantem fluxo constante de visitantes, impulsionando a demanda por hospedagem:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
+                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-calendar-alt text-accent text-4xl"></i><p>Parada do Orgulho LGBTQIA+ (Av. Paulista)</p></div>
+                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-running text-accent text-4xl"></i><p>Corrida de São Silvestre</p></div>
+                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-music text-accent text-4xl"></i><p>Concertos e Festivais (Teatros, Sesc)</p></div>
+                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-briefcase text-accent text-4xl"></i><p>Feiras e Congressos (próximo à Av. Paulista)</p></div>
+                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-gavel text-accent text-4xl"></i><p>Eventos Jurídicos (próximo a Fóruns)</p></div>
+                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-flask text-accent text-4xl"></i><p>Conferências Médicas (próximo a hospitais)</p></div>
+            </div>
+        </div>
+
+        <div class="card fade-in-item">
+            <h2 class="text-3xl font-bold text-white mb-4">Diferenciais do Empreendimento</h2>
+            <ul class="list-disc list-inside space-y-3 text-lg text-[var(--cor-texto)]">
+                <li><span class="font-semibold">Conceito Collage:</span> Um projeto com design inovador que integra arte, arquitetura e funcionalidade.</li>
+                <li><span class="font-semibold">Serviços Exclusivos:</span> Concierge, lavanderia, arrumação básica e serviços pay-per-use facilitam a vida de moradores e hóspedes.</li>
+                <li><span class="font-semibold">Áreas Comuns Sofisticadas:</span> Piscina com borda infinita, fitness completo, coworking, lounge gourmet e praças internas.</li>
+                <li><span class="font-semibold">Sustentabilidade:</span> Certificação AQUA (Alta Qualidade Ambiental) em construção e operação.</li>
+                <li><span class="font-semibold">Tecnologia e Conectividade:</span> Infraestrutura para automação e acesso de alta velocidade.</li>
+            </ul>
         </div>
 
          <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
@@ -186,7 +241,7 @@
                         <li><span class="font-semibold">Mensais:</span> 42x de R$ 3.531,00</li>
                         <li><span class="font-semibold">Anuais:</span> 2x de R$ 5.000,00</li>
                         <li><span class="font-semibold">Parcela Única:</span> R$ 35.961,00</li>
-                        <li><span class="font-semibold">Financiamento:</span> R$ 244.001,00</li>
+                        <li><span class="font-semibold">Crédito Imobiliário:</span> R$ 244.001,00</li>
                     </ul>
                     <button data-action="show-detailed-flow" class="mt-6 w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold py-4 px-8 rounded-full hover:opacity-90 transition-opacity transform hover:scale-105">
                         Ver Detalhamento Mês a Mês
@@ -202,6 +257,63 @@
                         <li><span class="font-bold">Incorporadora:</span> Helbor</li>
                      </ul>
                 </div>
+                <div class="card fade-in-item" style="--delay: 0.3s;">
+                    <h2 class="text-3xl font-bold text-white mb-4">Projeção de Valorização</h2>
+                    <p class="text-lg text-[var(--cor-texto-secundario)] mb-4">Com base na localização estratégica e nas tendências do mercado imobiliário para studios na Bela Vista, projetamos uma valorização do imóvel.</p>
+                    <div class="flex items-center justify-center space-x-4">
+                        <span class="text-5xl font-extrabold text-accent">~20%</span>
+                        <p class="text-xl font-semibold text-white">até a entrega</p>
+                    </div>
+                    <p class="text-sm text-[var(--cor-texto-secundario)] mt-2">Potencial de ganho de capital sobre o valor de aquisição, considerando o histórico da região e o perfil do empreendimento.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card fade-in-item">
+            <h2 class="text-3xl font-bold text-white mb-6 text-center">Análise de Risco Rendapê</h2>
+            <p class="text-lg text-[var(--cor-texto-secundario)] mb-6">Avaliação dos principais fatores de risco e potencial de retorno para o Helbor Collage Bela Vista:</p>
+            <div class="overflow-x-auto">
+                <table class="risk-table">
+                    <thead>
+                        <tr>
+                            <th>Fator</th>
+                            <th>Avaliação</th>
+                            <th>Justificativa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Solidez da Incorporadora</td>
+                            <td><span class="text-low-risk font-semibold">Baixo Risco</span></td>
+                            <td>Helbor é uma incorporadora de grande porte, listada na bolsa (HELB3), com histórico consolidado de entregas e solidez financeira.</td>
+                        </tr>
+                        <tr>
+                            <td>Localização</td>
+                            <td><span class="text-low-risk font-semibold">Baixo Risco</span></td>
+                            <td>Bela Vista, entre a Av. Paulista e 9 de Julho, com acesso facilitado ao Metrô Trianon-Masp e Brigadeiro. Forte demanda por moradia e locação.</td>
+                        </tr>
+                        <tr>
+                            <td>Valorização</td>
+                            <td><span class="text-positive font-semibold">Positivo</span></td>
+                            <td>Região em constante requalificação e adensamento. Studios em localizações centrais têm apresentado valorização acima da média histórica.</td>
+                        </tr>
+                        <tr>
+                            <td>Liquidez Futura</td>
+                            <td><span class="text-positive font-semibold">Positivo</span></td>
+                            <td>Studios de 26m² são altamente procurados para moradia individual, estudantes, profissionais e, especialmente, short stay na região central de SP.</td>
+                        </tr>
+                        <tr>
+                            <td>Exposição a Juros</td>
+                            <td><span class="text-medium-risk font-semibold">Médio Risco</span></td>
+                            <td>O financiamento pós-entrega (parcela de R$ 244.001,00) dependerá das condições da taxa Selic em 2029, o que pode impactar o custo final.</td>
+                        </tr>
+                        <tr>
+                            <td>Risco de Obra</td>
+                            <td><span class="text-low-risk font-semibold">Baixo Risco</span></td>
+                            <td>Helbor tem um excelente histórico de entrega de obras no prazo em São Paulo. O empreendimento possui patrimônio de afetação.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
@@ -212,8 +324,11 @@
 
         <div class="card fade-in-item">
             <h2 class="text-3xl font-bold text-white mb-4">Localização</h2>
+            <p class="text-lg text-[var(--cor-texto-secundario)] mb-4">O Helbor Collage Bela Vista está estrategicamente localizado em uma região com alta concentração de geradores de demanda. Explore o mapa para ver o entorno!</p>
             <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden border-2 border-gray-700">
-                <iframe class="w-full h-full" style="border:0;" loading="lazy" allowfullscreen src="https://maps.google.com/maps?q=Av.%20Brigadeiro%20Lu%C3%ADs%20Ant%C3%B4nio%2C%20502%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001318-000%2C%20Brasil&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+                <!-- Google Maps em modo satélite. Adicionar múltiplos pins diretamente em um iframe é limitado, 
+                     mas o zoom e a vista satélite destacam a região dos geradores de demanda. --><iframe class="w-full h-full" style="border:0;" loading="lazy" allowfullscreen 
+                        src="https://maps.google.com/maps?q=Av.%20Brigadeiro%20Lu%C3%ADs%20Ant%C3%B4nio%2C%20502%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001318-000%2C%20Brasil&t=k&z=16&ie=UTF8&iwloc=&output=embed"></iframe>
             </div>
         </div>
             
@@ -230,18 +345,49 @@
                 Acessar o Book do Imóvel
              </a>
         </div>
+
+        <div class="card fade-in-item">
+            <h2 class="text-3xl font-bold text-white mb-6 text-center">Documentos Necessários</h2>
+            <div class="max-w-3xl mx-auto text-left text-[var(--cor-texto-secundario)] space-y-6">
+                <ul class="list-disc list-inside space-y-2">
+                    <li>CPF e Identidade</li>
+                    <li>Profissão, e-mail e telefone</li>
+                    <li>Comprovante de Residência</li>
+                    <li>Comprovante de Estado Civil</li>
+                    <li class="font-semibold text-white">Comprovante de Renda, conforme o caso:
+                        <ul class="list-disc list-inside pl-6 mt-2 space-y-1 text-[var(--cor-texto-secundario)]">
+                            <li><span class="font-semibold text-white/80">Renda Formal:</span> 03 últimos contracheques ou Declaração e Recibo do IR</li>
+                            <li><span class="font-semibold text-white/80">Renda Informal:</span> Declaração e Recibo do IR juntamente com Extrato Bancário dos últimos 06 meses ou somente o Extrato Bancário dos últimos 06 meses</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="border-t border-white/10 pt-4">
+                    <p class="font-semibold text-white">Se casado(a), enviar também os documentos do cônjuge:</p>
+                    <ul class="list-disc list-inside pl-6 mt-2 space-y-1">
+                        <li>CPF e Identidade</li>
+                        <li>Comprovante de Renda</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Lightbox Modal -->
-    <div id="lightbox-modal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4 z-50 hidden">
+    <footer class="text-center py-10 mt-16 border-t border-white/10">
+        <div class="flex items-center justify-center space-x-3">
+             <img src="https://rendape.com.br/wp-content/uploads/2025/07/RendapeIcon.png" alt="Símbolo Rendapê" class="h-8">
+            <span class="text-2xl font-bold text-[var(--cor-principal)]">Rendapê</span>
+        </div>
+        <p class="text-sm text-[var(--cor-texto-secundario)] mt-2">© 2025 Rendapê. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Lightbox Modal --><div id="lightbox-modal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4 z-50 hidden">
         <button id="close-lightbox-btn" class="absolute top-4 right-6 text-white text-5xl font-bold z-10">&times;</button>
         <button id="prev-lightbox-btn" class="absolute left-4 text-white text-4xl font-bold p-4">&#10094;</button>
         <img id="lightbox-image" src="" alt="Imagem ampliada" class="max-w-[90vw] max-h-[90vh] object-contain">
         <button id="next-lightbox-btn" class="absolute right-4 text-white text-4xl font-bold p-4">&#10095;</button>
     </div>
 
-     <!-- Modal de Fluxo Detalhado -->
-    <div id="detailed-flow-modal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 z-50 hidden">
+     <!-- Modal de Fluxo Detalhado --><div id="detailed-flow-modal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-4 z-50 hidden">
         <div class="card w-full max-w-2xl max-h-[90vh] flex flex-col">
             <div class="flex justify-between items-center mb-4 pb-4 border-b border-white/10">
                 <h2 class="text-2xl font-bold text-white">Fluxo de Pagamento Detalhado</h2>
@@ -337,8 +483,6 @@
 
         function closeLightbox() { lightboxModal.classList.add('hidden'); }
         function closeDetailedFlow() { detailedFlowModal.classList.add('hidden'); }
-
-        function renderDetailedFlow() { /* ... (mesma lógica anterior) ... */ }
         
         // --- Event Listeners ---
         document.addEventListener('click', (e) => {
@@ -358,9 +502,8 @@
         closeModalBtn.addEventListener('click', closeDetailedFlow);
         detailedFlowModal.addEventListener('click', (e) => { if(e.target === detailedFlowModal) closeDetailedFlow(); });
 
-        // (A função renderDetailedFlow foi omitida aqui por ser idêntica à versão anterior)
         function formatCurrency(value) { return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value); }
-        function renderDetailedFlow() { const payments = []; for (let i = 0; i < 42; i++) { const paymentDate = new Date(2025, 9 + i, 1); payments.push({ date: paymentDate, amount: 3531, description: `Mensal (${i + 1}/42)` }); } payments.push({ date: new Date(2026, 5, 25), amount: 5000, description: 'Parcela Anual (1/2)' }); payments.push({ date: new Date(2027, 6, 25), amount: 5000, description: 'Parcela Anual (2/2)' }); const lastPaymentDate = payments.reduce((max, p) => p.date > max ? p.date : max, new Date(0)); payments.push({ date: new Date(lastPaymentDate.getFullYear(), lastPaymentDate.getMonth() + 2, 1), amount: 35961, description: 'Única Final' }); payments.push({ date: new Date(lastPaymentDate.getFullYear(), lastPaymentDate.getMonth() + 3, 1), amount: 244001, description: 'Financiamento Final' }); const paymentsByMonth = {}; payments.forEach(p => { const monthKey = `${p.date.getFullYear()}-${String(p.date.getMonth() + 1).padStart(2, '0')}`; if (!paymentsByMonth[monthKey]) { paymentsByMonth[monthKey] = { total: 0, descriptions: [] }; } paymentsByMonth[monthKey].total += p.amount; paymentsByMonth[monthKey].descriptions.push(p.description); }); const sortedMonths = Object.keys(paymentsByMonth).sort(); const tableRows = sortedMonths.map(monthKey => { const data = paymentsByMonth[monthKey]; const [year, month] = monthKey.split('-'); const monthName = new Date(year, month - 1, 1).toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' }); return `<tr class="border-b border-white/10"><td class="p-3 capitalize">${monthName}</td><td class="p-3 text-accent font-bold">${formatCurrency(data.total)}</td><td class="p-3 text-sm text-[var(--cor-texto-secundario)]">${data.descriptions.join(', ')}</td></tr>`; }).join(''); document.getElementById('modal-content').innerHTML = `<table class="w-full text-left"><thead><tr class="border-b border-white/20"><th class="p-3 text-sm font-bold uppercase text-[var(--cor-texto-secundario)]">Mês/Ano</th><th class="p-3 text-sm font-bold uppercase text-[var(--cor-texto-secundario)]">Valor a Pagar</th><th class="p-3 text-sm font-bold uppercase text-[var(--cor-texto-secundario)]">Descrição</th></tr></thead><tbody>${tableRows}</tbody></table>`; detailedFlowModal.classList.remove('hidden'); }
+        function renderDetailedFlow() { const payments = []; for (let i = 0; i < 42; i++) { const paymentDate = new Date(2025, 9 + i, 1); payments.push({ date: paymentDate, amount: 3531, description: `Mensal (${i + 1}/42)` }); } payments.push({ date: new Date(2026, 5, 25), amount: 5000, description: 'Parcela Anual (1/2)' }); payments.push({ date: new Date(2027, 6, 25), amount: 5000, description: 'Parcela Anual (2/2)' }); const lastPaymentDate = payments.reduce((max, p) => p.date > max ? p.date : max, new Date(0)); payments.push({ date: new Date(lastPaymentDate.getFullYear(), lastPaymentDate.getMonth() + 2, 1), amount: 35961, description: 'Única Final' }); payments.push({ date: new Date(lastPaymentDate.getFullYear(), lastPaymentDate.getMonth() + 3, 1), amount: 244001, description: 'Crédito Imobiliário Final' }); const paymentsByMonth = {}; payments.forEach(p => { const monthKey = `${p.date.getFullYear()}-${String(p.date.getMonth() + 1).padStart(2, '0')}`; if (!paymentsByMonth[monthKey]) { paymentsByMonth[monthKey] = { total: 0, descriptions: [] }; } paymentsByMonth[monthKey].total += p.amount; paymentsByMonth[monthKey].descriptions.push(p.description); }); const sortedMonths = Object.keys(paymentsByMonth).sort(); const tableRows = sortedMonths.map(monthKey => { const data = paymentsByMonth[monthKey]; const [year, month] = monthKey.split('-'); const monthName = new Date(year, month - 1, 1).toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' }); return `<tr class="border-b border-white/10"><td class="p-3 capitalize">${monthName}</td><td class="p-3 text-accent font-bold">${formatCurrency(data.total)}</td><td class="p-3 text-sm text-[var(--cor-texto-secundario)]">${data.descriptions.join(', ')}</td></tr>`; }).join(''); document.getElementById('modal-content').innerHTML = `<table class="w-full text-left"><thead><tr class="border-b border-white/20"><th class="p-3 text-sm font-bold uppercase text-[var(--cor-texto-secundario)]">Mês/Ano</th><th class="p-3 text-sm font-bold uppercase text-[var(--cor-texto-secundario)]">Valor a Pagar</th><th class="p-3 text-sm font-bold uppercase text-[var(--cor-texto-secundario)]">Descrição</th></tr></thead><tbody>${tableRows}</tbody></table>`; detailedFlowModal.classList.remove('hidden'); }
     </script>
 </body>
 </html>
