@@ -26,6 +26,7 @@
             background-image: radial-gradient(circle at 10% 10%, rgba(122, 92, 250, 0.1), transparent 30%),
                               radial-gradient(circle at 90% 80%, rgba(22, 36, 71, 0.3), transparent 40%);
             color: var(--cor-texto);
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
         h1, h2, h3 { font-family: 'Poppins', sans-serif; }
         .text-accent { color: var(--cor-principal); }
@@ -36,7 +37,8 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
-        .card:hover {
+        /* No hover effect for general cards, apply selectively */
+         .interactive-card:hover {
             transform: translateY(-8px) scale(1.02);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(var(--cor-principal-brilho), 0.15);
         }
@@ -97,42 +99,41 @@
             border-radius: 5px;
         }
 
-        /* Table styles for Risk Analysis */
-        .risk-table {
+        /* Table styles */
+        .styled-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 1.5rem;
+            font-size: 0.9rem; /* Smaller font for tables */
         }
-        .risk-table th, .risk-table td {
-            padding: 0.75rem;
+        .styled-table th, .styled-table td {
+            padding: 0.75rem 1rem; /* Adjust padding */
             text-align: left;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .risk-table th {
-            background-color: #2a2a47;
+        .styled-table th {
+            background-color: rgba(42, 42, 71, 0.5); /* Slightly different header */
             font-weight: 600;
             color: var(--cor-texto-secundario);
-            font-size: 0.9rem;
             text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
-        .risk-table td {
+        .styled-table td {
             color: var(--cor-texto);
         }
-        .risk-table tr:hover {
+         .styled-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .styled-table tbody tr:hover {
             background-color: rgba(255, 255, 255, 0.03);
         }
-        .risk-table .text-low-risk { color: #84cc16; } /* green-500 */
-        .risk-table .text-medium-risk { color: #facc15; } /* yellow-400 */
-        .risk-table .text-high-risk { color: #ef4444; } /* red-500 */
-        .risk-table .text-positive { color: #3b82f6; } /* blue-500 */
     </style>
 </head>
 <body class="p-4 sm:p-6">
 
     <div class="max-w-4xl min-h-screen mx-auto text-center flex flex-col justify-center">
-        <header class="mb-12 flex items-center justify-center space-x-3 sm:space-x-4 fade-in-item is-visible">
-            <img src="https://rendape.com.br/wp-content/uploads/2025/07/RendapeIcon.png" alt="Símbolo Rendapê" class="h-12 sm:h-14">
-            <span class="text-4xl sm:text-5xl font-bold text-[var(--cor-principal)]">Rendapê</span>
+        <header class="mb-12 flex items-center justify-center fade-in-item is-visible">
+            <img src="https://i.ibb.co/SXk78GB6/Logo-principal-2.png" alt="Logo Rendapê" class="h-24 sm:h-32"> <!-- Tamanho aumentado -->
         </header>
 
         <main class="space-y-6 fade-in-item is-visible" style="--delay: 0.2s;">
@@ -140,7 +141,7 @@
                 A maneira mais fácil de você comprar seu imóvel sem entrada é só pagando <span class="text-[var(--cor-principal)]">parcelinhas fixas.</span>
             </h1>
             <p class="text-lg md:text-xl text-[var(--cor-texto-secundario)] max-w-3xl mx-auto">
-                Imagine cada imóvel deixar para você em média de R$5.000 a R$10.000 por mês.
+                 Imagine cada imóvel deixar para você em média de R$5.000 a R$10.000 por mês.
             </p>
         </main>
         
@@ -151,7 +152,8 @@
         </footer>
     </div>
     
-    <!-- Seção do Imóvel --><section id="property-section" class="max-w-7xl mx-auto mt-16 space-y-12">
+    <!-- Seção do Imóvel -->
+    <section id="property-section" class="max-w-7xl mx-auto mt-16 space-y-12">
         
         <div class="text-center space-y-4 fade-in-item">
              <h1 class="text-4xl md:text-6xl font-extrabold text-white">Helbor Collage <span class="text-accent">Bela Vista</span></h1>
@@ -165,7 +167,8 @@
         <div class="fade-in-item">
              <div class="swiper-container my-swiper">
                 <div class="swiper-wrapper" id="carousel-wrapper">
-                    <!-- Imagens serão injetadas pelo JS --></div>
+                    <!-- Imagens serão injetadas pelo JS -->
+                </div>
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
@@ -182,7 +185,7 @@
             </div>
             <div class="lg:col-span-2 space-y-8">
                 <div class="card text-center fade-in-item" style="--delay: 0.1s;">
-                    <h2 class="text-3xl font-bold text-white mb-2">Projeção de Rendimento</h2>
+                    <h2 class="text-3xl font-bold text-white mb-2">Quanto o imóvel vai render</h2>
                     <p class="text-5xl font-extrabold text-accent">R$ 7.040,00</p>
                     <p class="text-sm text-[var(--cor-texto-secundario)]">Faturamento bruto mensal</p>
                     <div class="mt-4 pt-4 border-t border-white/10 text-left">
@@ -194,43 +197,101 @@
         </div>
 
         <div class="card fade-in-item">
-            <h2 class="text-3xl font-bold text-white mb-6 text-center">Geradores de Demanda</h2>
-            <p class="text-lg text-[var(--cor-texto-secundario)] mb-6">A Bela Vista é um epicentro de atividades que atraem um fluxo constante de pessoas, ideal para locações de curta e média duração:</p>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-center">
-                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-university text-accent text-4xl"></i><p>Universidades (FGV, FMU, Mackenzie)</p></div>
-                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-hospital text-accent text-4xl"></i><p>Hospitais (9 de Julho, Sírio-Libanês)</p></div>
-                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-subway text-accent text-4xl"></i><p>Metrô Trianon-Masp & Brigadeiro</p></div>
-                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-building text-accent text-4xl"></i><p>Avenida Paulista (eixo corporativo)</p></div>
-                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-theater-mask text-accent text-4xl"></i><p>Teatros (Ruth Escobar, Renault)</p></div>
-                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-store text-accent text-4xl"></i><p>Comércio da 25 de Março</p></div>
-                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-cocktail text-accent text-4xl"></i><p>Vida Noturna (Bixiga)</p>
-                </div>
-                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-palette text-accent text-4xl"></i><p>Museus e Centros Culturais</p></div>
+            <h2 class="text-3xl font-bold text-white mb-6 text-center">5 Pilares Geradores de Demanda</h2>
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6 text-center">
+                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-subway text-accent text-4xl mb-3"></i><p class="font-semibold text-white">Mobilidade</p><p class="text-sm text-[var(--cor-texto-secundario)]">600m Metrô Brigadeiro, acesso Av. Paulista, 23 de Maio, etc.</p></div>
+                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-hospital text-accent text-4xl mb-3"></i><p class="font-semibold text-white">Saúde</p><p class="text-sm text-[var(--cor-texto-secundario)]">Sírio-Libanês, Nove de Julho, Oswaldo Cruz, BP e HC.</p></div>
+                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-university text-accent text-4xl mb-3"></i><p class="font-semibold text-white">Educação</p><p class="text-sm text-[var(--cor-texto-secundario)]">FGV, Mackenzie, Cásper Líbero, Insper, FIA e USP (raio 3 km).</p></div>
+                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-theater-masks text-accent text-4xl mb-3"></i><p class="font-semibold text-white">Lazer & Cultura</p><p class="text-sm text-[var(--cor-texto-secundario)]">MASP, Teatro Renault, Tomie Ohtake, Av. Paulista, Ibirapuera.</p></div>
+                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-briefcase text-accent text-4xl mb-3"></i><p class="font-semibold text-white">Corporativo</p><p class="text-sm text-[var(--cor-texto-secundario)]">Eixos Paulista, Faria Lima e Berrini.</p></div>
             </div>
         </div>
         
         <div class="card fade-in-item">
-            <h2 class="text-3xl font-bold text-white mb-6 text-center">Eventos Âncora e Golden Events</h2>
-            <p class="text-lg text-[var(--cor-texto-secundario)] mb-6">A região é palco de grandes eventos e possui instituições que garantem fluxo constante de visitantes, impulsionando a demanda por hospedagem:</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
-                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-calendar-alt text-accent text-4xl"></i><p>Parada do Orgulho LGBTQIA+ (Av. Paulista)</p></div>
-                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-running text-accent text-4xl"></i><p>Corrida de São Silvestre</p></div>
-                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-music text-accent text-4xl"></i><p>Concertos e Festivais (Teatros, Sesc)</p></div>
-                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-briefcase text-accent text-4xl"></i><p>Feiras e Congressos (próximo à Av. Paulista)</p></div>
-                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-gavel text-accent text-4xl"></i><p>Eventos Jurídicos (próximo a Fóruns)</p></div>
-                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-flask text-accent text-4xl"></i><p>Conferências Médicas (próximo a hospitais)</p></div>
+            <h2 class="text-3xl font-bold text-white mb-6 text-center">Eventos Âncora & Golden Events (2025-2026)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                 <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-calendar-alt text-accent text-4xl mb-3"></i><p class="font-semibold text-white">Virada Cultural</p><p class="text-sm text-[var(--cor-texto-secundario)]">Maio (+30% ocupação)</p></div>
+                <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-rainbow text-accent text-4xl mb-3"></i><p class="font-semibold text-white">Parada LGBTQIA+</p><p class="text-sm text-[var(--cor-texto-secundario)]">Junho (90% ocupação)</p></div>
+                 <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-palette text-accent text-4xl mb-3"></i><p class="font-semibold text-white">SP-Arte / Bienal</p><p class="text-sm text-[var(--cor-texto-secundario)]">Abril/Set (Pico internacional)</p></div>
+                 <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-mask text-accent text-4xl mb-3"></i><p class="font-semibold text-white">Comic Con (CCXP)</p><p class="text-sm text-[var(--cor-texto-secundario)]">Dezembro (+60% ocupação)</p></div>
+                 <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-flag-checkered text-accent text-4xl mb-3"></i><p class="font-semibold text-white">GP de Fórmula 1</p><p class="text-sm text-[var(--cor-texto-secundario)]">Novembro (ADR +120%)</p></div>
+                 <div class="space-y-3 p-4 rounded-lg transition-colors hover:bg-white/5"><i class="fas fa-globe text-accent text-4xl mb-3"></i><p class="font-semibold text-white">Web Summit / G20</p><p class="text-sm text-[var(--cor-texto-secundario)]">Abril (Ocupação total)</p></div>
             </div>
+             <div class="mt-6 border-t border-white/10 pt-6">
+                <h3 class="text-xl font-bold text-white mb-3 text-center">Benchmarks Airbnb (2025)</h3>
+                <p class="text-center text-[var(--cor-texto-secundario)]">Exemplo: "Studio novo • Bela Vista • 600 m da Paulista • Wi-Fi 300 Mbps • 4.9⭐ Superhost"</p>
+                <p class="text-center font-semibold text-white mt-2">Faixa média: R$ 250 – R$ 400 / noite</p>
+                <p class="text-center text-sm text-[var(--cor-texto-secundario)]">ADR médio AirDNA SP 2025: R$ 286 | Ocupação 52 %.</p>
+             </div>
         </div>
 
         <div class="card fade-in-item">
-            <h2 class="text-3xl font-bold text-white mb-4">Diferenciais do Empreendimento</h2>
+            <h2 class="text-3xl font-bold text-white mb-4">Diferenciais</h2>
             <ul class="list-disc list-inside space-y-3 text-lg text-[var(--cor-texto)]">
-                <li><span class="font-semibold">Conceito Collage:</span> Um projeto com design inovador que integra arte, arquitetura e funcionalidade.</li>
-                <li><span class="font-semibold">Serviços Exclusivos:</span> Concierge, lavanderia, arrumação básica e serviços pay-per-use facilitam a vida de moradores e hóspedes.</li>
-                <li><span class="font-semibold">Áreas Comuns Sofisticadas:</span> Piscina com borda infinita, fitness completo, coworking, lounge gourmet e praças internas.</li>
-                <li><span class="font-semibold">Sustentabilidade:</span> Certificação AQUA (Alta Qualidade Ambiental) em construção e operação.</li>
-                <li><span class="font-semibold">Tecnologia e Conectividade:</span> Infraestrutura para automação e acesso de alta velocidade.</li>
+                <li><span class="font-semibold">Torre única</span> com 461 unidades e 22 pavimentos-tipo.</li>
+                <li><span class="font-semibold">Localização central</span> (Av. Brigadeiro Luís Antônio × Paulista).</li>
+                <li><span class="font-semibold">Padrão médio-alto</span> com infraestrutura para short-stay e coliving.</li>
+                <li><span class="font-semibold">Certificação AQUA HQE</span> (sustentabilidade).</li>
+                <li><span class="font-semibold">Gestão profissional</span> opcional com SLA < 10 min (Housi, B.Homy, etc.).</li>
             </ul>
+        </div>
+        
+        <!-- Seção de Plantas -->
+        <div class="card fade-in-item">
+            <h2 class="text-3xl font-bold text-white mb-4 text-center">Plantas/Unidades Disponíveis</h2>
+             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                <!-- Novas Plantas -->
+                <div class="relative group text-center">
+                    <span class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg z-10">DISPONÍVEL</span>
+                    <img src="https://i.ibb.co/CKjpZgvL/PLANTA-UNIDADE-408.jpg" alt="Unidade 408" class="w-full object-contain rounded-lg border-2 border-gray-700 cursor-pointer transition-transform duration-300 group-hover:scale-105" data-action="open-lightbox-single" data-src="https://i.ibb.co/CKjpZgvL/PLANTA-UNIDADE-408.jpg">
+                    <p class="text-sm mt-2 text-[var(--cor-texto-secundario)]">Unidade 408</p>
+                </div>
+                 <div class="relative group text-center">
+                    <span class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg z-10">DISPONÍVEL</span>
+                    <img src="https://i.ibb.co/zTxBvVfN/PLANTA-DA-UNIDADE-809.jpg" alt="Unidade 809" class="w-full object-contain rounded-lg border-2 border-gray-700 cursor-pointer transition-transform duration-300 group-hover:scale-105" data-action="open-lightbox-single" data-src="https://i.ibb.co/zTxBvVfN/PLANTA-DA-UNIDADE-809.jpg">
+                    <p class="text-sm mt-2 text-[var(--cor-texto-secundario)]">Unidade 809</p>
+                </div>
+                 <div class="relative group text-center">
+                    <span class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg z-10">DISPONÍVEL</span>
+                    <img src="https://i.ibb.co/vvmfv8D2/PLANTA-DA-UNIDADE-512.jpg" alt="Unidade 512" class="w-full object-contain rounded-lg border-2 border-gray-700 cursor-pointer transition-transform duration-300 group-hover:scale-105" data-action="open-lightbox-single" data-src="https://i.ibb.co/vvmfv8D2/PLANTA-DA-UNIDADE-512.jpg">
+                    <p class="text-sm mt-2 text-[var(--cor-texto-secundario)]">Unidade 512</p>
+                </div>
+                 <div class="relative group text-center">
+                    <span class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg z-10">DISPONÍVEL</span>
+                    <img src="https://i.ibb.co/TBtNgKKk/PLANTA-DA-UNIDADE-515.jpg" alt="Unidade 515" class="w-full object-contain rounded-lg border-2 border-gray-700 cursor-pointer transition-transform duration-300 group-hover:scale-105" data-action="open-lightbox-single" data-src="https://i.ibb.co/TBtNgKKk/PLANTA-DA-UNIDADE-515.jpg">
+                    <p class="text-sm mt-2 text-[var(--cor-texto-secundario)]">Unidade 515</p>
+                </div>
+                 <div class="relative group text-center">
+                    <span class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg z-10">DISPONÍVEL</span>
+                    <img src="https://i.ibb.co/zTxBvVfN/PLANTA-DA-UNIDADE-809.jpg" alt="Unidade 509" class="w-full object-contain rounded-lg border-2 border-gray-700 cursor-pointer transition-transform duration-300 group-hover:scale-105" data-action="open-lightbox-single" data-src="https://i.ibb.co/zTxBvVfN/PLANTA-DA-UNIDADE-809.jpg">
+                    <p class="text-sm mt-2 text-[var(--cor-texto-secundario)]">Unidade 509</p>
+                </div>
+                 <div class="relative group text-center">
+                    <span class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg z-10">DISPONÍVEL</span>
+                    <img src="https://i.ibb.co/84syZ395/PLANTA-DA-UNIDADE-414.jpg" alt="Unidade 414" class="w-full object-contain rounded-lg border-2 border-gray-700 cursor-pointer transition-transform duration-300 group-hover:scale-105" data-action="open-lightbox-single" data-src="https://i.ibb.co/84syZ395/PLANTA-DA-UNIDADE-414.jpg">
+                    <p class="text-sm mt-2 text-[var(--cor-texto-secundario)]">Unidade 414</p>
+                </div>
+                <div class="relative group text-center">
+                    <span class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg z-10">DISPONÍVEL</span>
+                    <img src="https://i.ibb.co/SWqgWcq/PLANTA-DA-UNIDADE-318.jpg" alt="Unidade 318" class="w-full object-contain rounded-lg border-2 border-gray-700 cursor-pointer transition-transform duration-300 group-hover:scale-105" data-action="open-lightbox-single" data-src="https://i.ibb.co/SWqgWcq/PLANTA-DA-UNIDADE-318.jpg">
+                    <p class="text-sm mt-2 text-[var(--cor-texto-secundario)]">Unidade 318</p>
+                </div>
+                 <div class="relative group text-center">
+                    <span class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg z-10">DISPONÍVEL</span>
+                    <img src="https://i.ibb.co/TBtNgKKk/PLANTA-DA-UNIDADE-515.jpg" alt="Unidade 315" class="w-full object-contain rounded-lg border-2 border-gray-700 cursor-pointer transition-transform duration-300 group-hover:scale-105" data-action="open-lightbox-single" data-src="https://i.ibb.co/TBtNgKKk/PLANTA-DA-UNIDADE-515.jpg">
+                    <p class="text-sm mt-2 text-[var(--cor-texto-secundario)]">Unidade 315</p>
+                </div>
+                 <div class="relative group text-center">
+                    <span class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg z-10">DISPONÍVEL</span>
+                    <img src="https://i.ibb.co/SWqgWcq/PLANTA-DA-UNIDADE-318.jpg" alt="Unidade 218" class="w-full object-contain rounded-lg border-2 border-gray-700 cursor-pointer transition-transform duration-300 group-hover:scale-105" data-action="open-lightbox-single" data-src="https://i.ibb.co/SWqgWcq/PLANTA-DA-UNIDADE-318.jpg">
+                    <p class="text-sm mt-2 text-[var(--cor-texto-secundario)]">Unidade 218</p>
+                </div>
+                 <div class="relative group text-center">
+                    <span class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg z-10">DISPONÍVEL</span>
+                    <img src="https://i.ibb.co/qMw91K4H/PLANTA-DA-UNIDADE-212.jpg" alt="Unidade 212" class="w-full object-contain rounded-lg border-2 border-gray-700 cursor-pointer transition-transform duration-300 group-hover:scale-105" data-action="open-lightbox-single" data-src="https://i.ibb.co/qMw91K4H/PLANTA-DA-UNIDADE-212.jpg">
+                    <p class="text-sm mt-2 text-[var(--cor-texto-secundario)]">Unidade 212</p>
+                </div>
+            </div>
         </div>
 
          <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
@@ -244,7 +305,7 @@
                         <li><span class="font-semibold">Crédito Imobiliário:</span> R$ 244.001,00</li>
                     </ul>
                     <button data-action="show-detailed-flow" class="mt-6 w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold py-4 px-8 rounded-full hover:opacity-90 transition-opacity transform hover:scale-105">
-                        Ver Detalhamento Mês a Mês
+                        Ver Detalhamento Mês a Mês (Simulação)
                     </button>
                 </div>
             </div>
@@ -254,80 +315,17 @@
                      <ul class="space-y-2">
                         <li><span class="font-bold">Endereço:</span> Av. Brigadeiro Luís Antônio, 502 - Bela Vista, São Paulo - SP, 01318-000, Brasil</li>
                         <li><span class="font-bold">Tipologia:</span> Studios</li>
-                        <li><span class="font-bold">Incorporadora:</span> Helbor</li>
+                        <li><span class="font-semibold">Incorporadora:</span> Helbor</li>
                      </ul>
                 </div>
-                <div class="card fade-in-item" style="--delay: 0.3s;">
-                    <h2 class="text-3xl font-bold text-white mb-4">Projeção de Valorização</h2>
-                    <p class="text-lg text-[var(--cor-texto-secundario)] mb-4">Com base na localização estratégica e nas tendências do mercado imobiliário para studios na Bela Vista, projetamos uma valorização do imóvel.</p>
-                    <div class="flex items-center justify-center space-x-4">
-                        <span class="text-5xl font-extrabold text-accent">~20%</span>
-                        <p class="text-xl font-semibold text-white">até a entrega</p>
-                    </div>
-                    <p class="text-sm text-[var(--cor-texto-secundario)] mt-2">Potencial de ganho de capital sobre o valor de aquisição, considerando o histórico da região e o perfil do empreendimento.</p>
-                </div>
             </div>
-        </div>
-
-        <div class="card fade-in-item">
-            <h2 class="text-3xl font-bold text-white mb-6 text-center">Análise de Risco Rendapê</h2>
-            <p class="text-lg text-[var(--cor-texto-secundario)] mb-6">Avaliação dos principais fatores de risco e potencial de retorno para o Helbor Collage Bela Vista:</p>
-            <div class="overflow-x-auto">
-                <table class="risk-table">
-                    <thead>
-                        <tr>
-                            <th>Fator</th>
-                            <th>Avaliação</th>
-                            <th>Justificativa</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Solidez da Incorporadora</td>
-                            <td><span class="text-low-risk font-semibold">Baixo Risco</span></td>
-                            <td>Helbor é uma incorporadora de grande porte, listada na bolsa (HELB3), com histórico consolidado de entregas e solidez financeira.</td>
-                        </tr>
-                        <tr>
-                            <td>Localização</td>
-                            <td><span class="text-low-risk font-semibold">Baixo Risco</span></td>
-                            <td>Bela Vista, entre a Av. Paulista e 9 de Julho, com acesso facilitado ao Metrô Trianon-Masp e Brigadeiro. Forte demanda por moradia e locação.</td>
-                        </tr>
-                        <tr>
-                            <td>Valorização</td>
-                            <td><span class="text-positive font-semibold">Positivo</span></td>
-                            <td>Região em constante requalificação e adensamento. Studios em localizações centrais têm apresentado valorização acima da média histórica.</td>
-                        </tr>
-                        <tr>
-                            <td>Liquidez Futura</td>
-                            <td><span class="text-positive font-semibold">Positivo</span></td>
-                            <td>Studios de 26m² são altamente procurados para moradia individual, estudantes, profissionais e, especialmente, short stay na região central de SP.</td>
-                        </tr>
-                        <tr>
-                            <td>Exposição a Juros</td>
-                            <td><span class="text-medium-risk font-semibold">Médio Risco</span></td>
-                            <td>O financiamento pós-entrega (parcela de R$ 244.001,00) dependerá das condições da taxa Selic em 2029, o que pode impactar o custo final.</td>
-                        </tr>
-                        <tr>
-                            <td>Risco de Obra</td>
-                            <td><span class="text-low-risk font-semibold">Baixo Risco</span></td>
-                            <td>Helbor tem um excelente histórico de entrega de obras no prazo em São Paulo. O empreendimento possui patrimônio de afetação.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div class="card fade-in-item">
-            <h2 class="text-3xl font-bold text-white mb-4 text-center">Planta</h2>
-            <img src="https://corretoron.com.br/admin/images/_PRODUTOS/SaoPaulo/HelborCollage/galeria/plantas/planta_studio_26m_helbor_collage.jpg" alt="Planta do Studio 26m²" class="w-full max-w-sm mx-auto object-contain rounded-lg border-2 border-gray-700 cursor-pointer" data-action="open-lightbox-single" data-src="https://corretoron.com.br/admin/images/_PRODUTOS/SaoPaulo/HelborCollage/galeria/plantas/planta_studio_26m_helbor_collage.jpg">
         </div>
 
         <div class="card fade-in-item">
             <h2 class="text-3xl font-bold text-white mb-4">Localização</h2>
             <p class="text-lg text-[var(--cor-texto-secundario)] mb-4">O Helbor Collage Bela Vista está estrategicamente localizado em uma região com alta concentração de geradores de demanda. Explore o mapa para ver o entorno!</p>
             <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden border-2 border-gray-700">
-                <!-- Google Maps em modo satélite. Adicionar múltiplos pins diretamente em um iframe é limitado, 
-                     mas o zoom e a vista satélite destacam a região dos geradores de demanda. --><iframe class="w-full h-full" style="border:0;" loading="lazy" allowfullscreen 
+                <iframe class="w-full h-full" style="border:0;" loading="lazy" allowfullscreen 
                         src="https://maps.google.com/maps?q=Av.%20Brigadeiro%20Lu%C3%ADs%20Ant%C3%B4nio%2C%20502%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001318-000%2C%20Brasil&t=k&z=16&ie=UTF8&iwloc=&output=embed"></iframe>
             </div>
         </div>
@@ -341,34 +339,12 @@
 
         <div class="card text-center fade-in-item">
              <h2 class="text-3xl font-bold text-white mb-4">Conheça mais detalhes</h2>
-             <a href="https://corretoron.com.br/admin/images/_PRODUTOS/SaoPaulo/HelborCollage/paper/Book_Helbor_Collage.pdf" target="_blank" class="inline-block bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold py-4 px-8 rounded-full hover:opacity-90 transition-opacity transform hover:scale-105">
+             <a href="httpsStorage2/images/HelborCollage/Book_Helbor_Collage.pdf" target="_blank" class="inline-block bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold py-4 px-8 rounded-full hover:opacity-90 transition-opacity transform hover:scale-105">
                 Acessar o Book do Imóvel
              </a>
-        </div>
-
-        <div class="card fade-in-item">
-            <h2 class="text-3xl font-bold text-white mb-6 text-center">Documentos Necessários</h2>
-            <div class="max-w-3xl mx-auto text-left text-[var(--cor-texto-secundario)] space-y-6">
-                <ul class="list-disc list-inside space-y-2">
-                    <li>CPF e Identidade</li>
-                    <li>Profissão, e-mail e telefone</li>
-                    <li>Comprovante de Residência</li>
-                    <li>Comprovante de Estado Civil</li>
-                    <li class="font-semibold text-white">Comprovante de Renda, conforme o caso:
-                        <ul class="list-disc list-inside pl-6 mt-2 space-y-1 text-[var(--cor-texto-secundario)]">
-                            <li><span class="font-semibold text-white/80">Renda Formal:</span> 03 últimos contracheques ou Declaração e Recibo do IR</li>
-                            <li><span class="font-semibold text-white/80">Renda Informal:</span> Declaração e Recibo do IR juntamente com Extrato Bancário dos últimos 06 meses ou somente o Extrato Bancário dos últimos 06 meses</li>
-                        </ul>
-                    </li>
-                </ul>
-                <div class="border-t border-white/10 pt-4">
-                    <p class="font-semibold text-white">Se casado(a), enviar também os documentos do cônjuge:</p>
-                    <ul class="list-disc list-inside pl-6 mt-2 space-y-1">
-                        <li>CPF e Identidade</li>
-                        <li>Comprovante de Renda</li>
-                    </ul>
-                </div>
-            </div>
+             <a href="detalhes_tecnicos.html" class="mt-4 inline-block text-accent font-semibold py-4 px-8 hover:text-white transition-colors">
+                Ver Análise Técnica Completa
+             </a>
         </div>
     </section>
 
@@ -410,6 +386,7 @@
             slide.className = 'swiper-slide';
             const img = document.createElement('img');
             img.src = src;
+            img.loading = 'lazy'; // Add lazy loading
             img.className = 'w-full h-full object-cover cursor-pointer';
             img.dataset.action = 'open-lightbox';
             img.dataset.index = index;
@@ -450,9 +427,21 @@
             });
         }, { threshold: 0.1 });
         animatedItems.forEach((item, index) => {
-            item.style.setProperty('--delay', `${index * 0.1}s`);
+            // Apply staggered delay only to items within the property section
+             // Reset delay calculation for each major section if needed or keep it simple
+            let baseDelay = 0;
+            if (item.closest('header, main, footer:not(section footer)')) {
+                 baseDelay = index * 0.1; // Initial page load animations
+            } else if (item.closest('#property-section')) {
+                 // Stagger within the property section
+                 const sectionItems = Array.from(item.closest('#property-section').querySelectorAll('.fade-in-item'));
+                 const itemIndexInSection = sectionItems.indexOf(item);
+                 baseDelay = itemIndexInSection * 0.08; // Slightly faster stagger within section
+            }
+             item.style.setProperty('--delay', `${baseDelay}s`);
             observer.observe(item)
         });
+
 
         // --- Lightbox & Modal Logic ---
         const lightboxModal = document.getElementById('lightbox-modal');
@@ -462,9 +451,23 @@
         const nextLightboxBtn = document.getElementById('next-lightbox-btn');
         const detailedFlowModal = document.getElementById('detailed-flow-modal');
         const closeModalBtn = document.getElementById('close-modal-btn');
+        const modalContent = document.getElementById('modal-content');
 
         let currentLightboxIndex = 0;
         let lightboxImageUrls = [];
+
+        // Combine carousel images and single images for lightbox navigation
+        // Ensure this runs after the page has loaded and elements exist
+        let allClickableImages = [];
+        let allImageSources = [];
+
+        function initializeLightboxSources() {
+             allClickableImages = document.querySelectorAll('[data-action="open-lightbox"], [data-action="open-lightbox-single"]');
+             allImageSources = Array.from(allClickableImages).map(img => img.dataset.src || img.src);
+        }
+        
+        window.addEventListener('load', initializeLightboxSources); // Initialize after load
+
 
         function showLightboxImage(index) {
             if (index < 0 || index >= lightboxImageUrls.length) return;
@@ -474,12 +477,16 @@
             nextLightboxBtn.style.display = index === lightboxImageUrls.length - 1 ? 'none' : 'block';
         }
 
-        function openLightbox(startIndex, urls) {
-            if (!urls || urls.length === 0) return;
-            lightboxImageUrls = urls;
+        function openLightbox(startIndex) {
+            if (!allImageSources || allImageSources.length === 0) {
+                 initializeLightboxSources(); // Try initializing again if empty
+                 if (!allImageSources || allImageSources.length === 0) return; // Still empty, exit
+            }
+            lightboxImageUrls = allImageSources; // Use the combined list
             showLightboxImage(startIndex);
             lightboxModal.classList.remove('hidden');
         }
+
 
         function closeLightbox() { lightboxModal.classList.add('hidden'); }
         function closeDetailedFlow() { detailedFlowModal.classList.add('hidden'); }
@@ -489,9 +496,21 @@
             const target = e.target.closest('[data-action]');
             if (!target) return;
             const action = target.dataset.action;
-            if (action === 'open-lightbox') openLightbox(parseInt(target.dataset.index, 10), images);
-            if (action === 'open-lightbox-single') openLightbox(0, [target.dataset.src]);
-            if (action === 'show-detailed-flow') renderDetailedFlow();
+
+             // Find the correct index in the combined list
+            let globalIndex = -1;
+            if (action === 'open-lightbox' || action === 'open-lightbox-single') {
+                 const targetSrc = target.dataset.src || target.src;
+                  if (allImageSources.length === 0) initializeLightboxSources(); // Ensure sources are ready
+                 globalIndex = allImageSources.findIndex(src => src === targetSrc);
+            }
+           
+            if ((action === 'open-lightbox' || action === 'open-lightbox-single') && globalIndex !== -1) {
+                openLightbox(globalIndex);
+            }
+            if (action === 'show-detailed-flow') {
+                 renderDetailedFlow();
+            }
         });
 
         closeLightboxBtn.addEventListener('click', closeLightbox);
@@ -503,8 +522,7 @@
         detailedFlowModal.addEventListener('click', (e) => { if(e.target === detailedFlowModal) closeDetailedFlow(); });
 
         function formatCurrency(value) { return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value); }
-        function renderDetailedFlow() { const payments = []; for (let i = 0; i < 42; i++) { const paymentDate = new Date(2025, 9 + i, 1); payments.push({ date: paymentDate, amount: 3531, description: `Mensal (${i + 1}/42)` }); } payments.push({ date: new Date(2026, 5, 25), amount: 5000, description: 'Parcela Anual (1/2)' }); payments.push({ date: new Date(2027, 6, 25), amount: 5000, description: 'Parcela Anual (2/2)' }); const lastPaymentDate = payments.reduce((max, p) => p.date > max ? p.date : max, new Date(0)); payments.push({ date: new Date(lastPaymentDate.getFullYear(), lastPaymentDate.getMonth() + 2, 1), amount: 35961, description: 'Única Final' }); payments.push({ date: new Date(lastPaymentDate.getFullYear(), lastPaymentDate.getMonth() + 3, 1), amount: 244001, description: 'Crédito Imobiliário Final' }); const paymentsByMonth = {}; payments.forEach(p => { const monthKey = `${p.date.getFullYear()}-${String(p.date.getMonth() + 1).padStart(2, '0')}`; if (!paymentsByMonth[monthKey]) { paymentsByMonth[monthKey] = { total: 0, descriptions: [] }; } paymentsByMonth[monthKey].total += p.amount; paymentsByMonth[monthKey].descriptions.push(p.description); }); const sortedMonths = Object.keys(paymentsByMonth).sort(); const tableRows = sortedMonths.map(monthKey => { const data = paymentsByMonth[monthKey]; const [year, month] = monthKey.split('-'); const monthName = new Date(year, month - 1, 1).toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' }); return `<tr class="border-b border-white/10"><td class="p-3 capitalize">${monthName}</td><td class="p-3 text-accent font-bold">${formatCurrency(data.total)}</td><td class="p-3 text-sm text-[var(--cor-texto-secundario)]">${data.descriptions.join(', ')}</td></tr>`; }).join(''); document.getElementById('modal-content').innerHTML = `<table class="w-full text-left"><thead><tr class="border-b border-white/20"><th class="p-3 text-sm font-bold uppercase text-[var(--cor-texto-secundario)]">Mês/Ano</th><th class="p-3 text-sm font-bold uppercase text-[var(--cor-texto-secundario)]">Valor a Pagar</th><th class="p-3 text-sm font-bold uppercase text-[var(--cor-texto-secundario)]">Descrição</th></tr></thead><tbody>${tableRows}</tbody></table>`; detailedFlowModal.classList.remove('hidden'); }
+        function renderDetailedFlow() { const payments = []; for (let i = 0; i < 42; i++) { const paymentDate = new Date(2025, 9 + i, 1); payments.push({ date: paymentDate, amount: 3531, description: `Mensal (${i + 1}/42)` }); } payments.push({ date: new Date(2026, 5, 25), amount: 5000, description: 'Parcela Anual (1/2)' }); payments.push({ date: new Date(2027, 6, 25), amount: 5000, description: 'Parcela Anual (2/2)' }); const lastPaymentDate = payments.reduce((max, p) => p.date > max ? p.date : max, new Date(0)); payments.push({ date: new Date(lastPaymentDate.getFullYear(), lastPaymentDate.getMonth() + 2, 1), amount: 35961, description: 'Única Final' }); payments.push({ date: new Date(lastPaymentDate.getFullYear(), lastPaymentDate.getMonth() + 3, 1), amount: 244001, description: 'Financiamento Final' }); const paymentsByMonth = {}; payments.forEach(p => { const monthKey = `${p.date.getFullYear()}-${String(p.date.getMonth() + 1).padStart(2, '0')}`; if (!paymentsByMonth[monthKey]) { paymentsByMonth[monthKey] = { total: 0, descriptions: [] }; } paymentsByMonth[monthKey].total += p.amount; paymentsByMonth[monthKey].descriptions.push(p.description); }); const sortedMonths = Object.keys(paymentsByMonth).sort(); const tableRows = sortedMonths.map(monthKey => { const data = paymentsByMonth[monthKey]; const [year, month] = monthKey.split('-'); const monthName = new Date(year, month - 1, 1).toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' }); return `<tr class="border-b border-white/10"><td class="p-3 capitalize">${monthName}</td><td class="p-3 text-accent font-bold">${formatCurrency(data.total)}</td><td class="p-3 text-sm text-[var(--cor-texto-secundario)]">${data.descriptions.join(', ')}</td></tr>`; }).join(''); modalContent.innerHTML = `<table class="w-full text-left"><thead><tr class="border-b border-white/20"><th class="p-3 text-sm font-bold uppercase text-[var(--cor-texto-secundario)]">Mês/Ano</th><th class="p-3 text-sm font-bold uppercase text-[var(--cor-texto-secundario)]">Valor a Pagar</th><th class="p-3 text-sm font-bold uppercase text-[var(--cor-texto-secundario)]">Descrição</th></tr></thead><tbody>${tableRows}</tbody></table>`; detailedFlowModal.classList.remove('hidden'); }
     </script>
 </body>
 </html>
-
