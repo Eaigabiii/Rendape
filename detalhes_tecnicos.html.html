@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise Técnica - Helbor Collage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --cor-principal: #7A5CFA;
+            --cor-principal-brilho: #9d84ff;
+            --cor-fundo: #12121c;
+            --cor-card: #1C1C3A;
+            --cor-texto: #E0E0E0;
+            --cor-texto-secundario: #A0A0B0;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--cor-fundo);
+            background-image: radial-gradient(circle at 10% 10%, rgba(122, 92, 250, 0.1), transparent 30%),
+                              radial-gradient(circle at 90% 80%, rgba(22, 36, 71, 0.3), transparent 40%);
+            color: var(--cor-texto);
+            overflow-x: hidden;
+        }
+        h1, h2, h3 { font-family: 'Poppins', sans-serif; }
+        .text-accent { color: var(--cor-principal); }
+        .card {
+            background: linear-gradient(145deg, var(--cor-card), #181830);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        /* Table styles */
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+        .styled-table th, .styled-table td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .styled-table th {
+            background-color: rgba(42, 42, 71, 0.5);
+            font-weight: 600;
+            color: var(--cor-texto-secundario);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .styled-table td {
+            color: var(--cor-texto);
+        }
+         .styled-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .styled-table tbody tr:hover {
+            background-color: rgba(255, 255, 255, 0.03);
+        }
+        .styled-table .text-low-risk { color: #84cc16; } /* green-500 */
+        .styled-table .text-medium-risk { color: #facc15; } /* yellow-400 */
+        .styled-table .text-high-risk { color: #ef4444; } /* red-500 */
+        .styled-table .text-positive { color: #60a5fa; } /* blue-400 */
+        .styled-table .text-rc-prime { color: #34d399; font-weight: bold; } /* emerald-400 */
+    </style>
+</head>
+<body class="p-4 sm:p-6">
+
+    <div class="max-w-5xl mx-auto space-y-12">
+        <header class="flex justify-between items-center">
+            <div class="flex items-center space-x-3 sm:space-x-4">
+                <img src="https://rendape.com.br/wp-content/uploads/2025/07/RendapeIcon.png" alt="Símbolo Rendapê" class="h-10 sm:h-12">
+                <span class="text-3xl sm:text-4xl font-bold text-[var(--cor-principal)]">Rendapê</span>
+            </div>
+            <a href="index.html" class="inline-block bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold py-2 px-6 rounded-full hover:opacity-90 transition-opacity">
+                <i class="fas fa-arrow-left mr-2"></i> Voltar
+            </a>
+        </header>
+
+        <main class="space-y-8">
+            <div class="text-center">
+                <h1 class="text-3xl md:text-5xl font-extrabold text-white">Análise Técnica Detalhada</h1>
+                <p class="text-xl text-accent">Helbor Collage Bela Vista</p>
+            </div>
+
+            <div class="card">
+                <h2 class="text-3xl font-bold text-white mb-4 text-center">Tese de Investimento & Análise de Risco</h2>
+                <p class="text-lg text-[var(--cor-texto-secundario)] mb-4 text-center">Ativo "prime" com foco em short-stay e coliving na região da Av. Paulista, integrando demanda corporativa, hospitalar e cultural. Entrega março de 2029, desenvolvido pela Helbor (listada na B3). Projeções Rendapê indicam Cap Rate até 12,3% a.a. e payback de ~8 anos. Combina liquidez, baixo risco e potencial de valorização.</p>
+                <div class="overflow-x-auto">
+                    <table class="styled-table risk-table">
+                        <thead><tr><th>Fator</th><th>Avaliação</th><th>Justificativa</th></tr></thead>
+                        <tbody>
+                            <tr><td>Solidez da Incorporadora</td><td><span class="text-low-risk font-semibold">Baixo Risco</span></td><td>Helbor (HELB3): 47 anos, histórico sólido, pontualidade, solidez financeira.</td></tr>
+                            <tr><td>Localização</td><td><span class="text-low-risk font-semibold">Baixo Risco</span></td><td>Bela Vista (Paulista/Brigadeiro), metrô próximo, forte demanda diversificada.</td></tr>
+                            <tr><td>Valorização</td><td><span class="text-positive font-semibold">Positivo</span></td><td>Região em requalificação, studios centrais valorizam acima da média.</td></tr>
+                            <tr><td>Liquidez Futura</td><td><span class="text-positive font-semibold">Positivo</span></td><td>Alta procura por studios (<30m²) para moradia, aluguel e short-stay.</td></tr>
+                            <tr><td>Exposição a Juros</td><td><span class="text-medium-risk font-semibold">Médio Risco</span></td><td>Crédito pós-entrega (2029) depende da Selic futura.</td></tr>
+                            <tr><td>Risco de Obra</td><td><span class="text-low-risk font-semibold">Baixo Risco</span></td><td>Histórico de entregas da Helbor, patrimônio de afetação.</td></tr>
+                            <tr><td colspan="3" class="text-center font-bold pt-4"><span class="text-rc-prime">Classificação Final: 🟩 AAA – Ativo Prime Paulista Short-Stay Rendapê</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 <div class="mt-6 border-t border-white/10 pt-6">
+                    <h3 class="text-xl font-bold text-white mb-3 text-center">Análise de Risco – Incorporadora</h3>
+                    <p class="text-center text-[var(--cor-texto-secundario)]">Helbor Empreendimentos S.A. — empresa listada na B3, 47 anos de histórico, selo AQUA-HQE, reconhecida por pontualidade e solidez financeira. <span class="font-semibold text-low-risk">→ Risco baixo de execução e entrega.</span></p>
+                 </div>
+            </div>
+
+            <div class="card">
+                <h2 class="text-3xl font-bold text-white mb-4 text-center">Projeção Financeira Comparativa</h2>
+                <div class="overflow-x-auto">
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>Indicador</th>
+                                <th>Cenário Base (Mercado)</th>
+                                <th>Cenário Rendape Premium</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>ADR</td><td>R$ 286</td><td class="text-accent font-semibold">R$ 400 (+40%)</td></tr>
+                            <tr><td>Ocupação</td><td>52% (15,6 noites/mês)</td><td class="text-accent font-semibold">65% (19,5 noites/mês) (+25%)</td></tr>
+                            <tr><td>Receita Bruta</td><td>R$ 4.460/mês</td><td class="text-accent font-semibold">R$ 7.800/mês</td></tr>
+                            <tr><td>Custos Fixos (Estimado)</td><td>R$ 1.220</td><td>R$ 1.220</td></tr>
+                            <tr><td>Gestão (18%)</td><td>R$ 803</td><td>R$ 1.404</td></tr>
+                            <tr><td>Receita Líquida Estimada</td><td>R$ 2.437/mês</td><td class="text-accent font-semibold">R$ 5.176/mês</td></tr>
+                            <tr><td>Cap Rate Anual Estimado</td><td>5,8% a.a.</td><td class="text-accent font-semibold">12,3% a.a.</td></tr>
+                            <tr><td>Payback Estimado</td><td>14,3 anos</td><td class="text-accent font-semibold">8,1 anos</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                 <p class="text-sm text-[var(--cor-texto-secundario)] mt-4">* Projeções baseadas em benchmarks e expertise Rendapê. Resultados podem variar.</p>
+            </div>
+            
+             <div class="card">
+                <h2 class="text-3xl font-bold text-white mb-4 text-center">Indicadores de Mercado (SP 2025)</h2>
+                 <ul class="list-disc list-inside space-y-2 text-md text-[var(--cor-texto)] max-w-md mx-auto">
+                    <li><span class="font-semibold">ADR médio (AirDNA):</span> R$ 286</li>
+                    <li><span class="font-semibold">Ocupação média (AirDNA):</span> 52%</li>
+                    <li><span class="font-semibold">RevPAR (AirDNA):</span> R$ 140</li>
+                    <li><span class="font-semibold">Preço Médio m² (FipeZAP Jul/25):</span> R$ 11.671</li>
+                    <li><span class="font-semibold">Velocidade Vendas (IVV Secovi):</span> ~6 meses</li>
+                    <li><span class="font-semibold">Cap Rate Short-Stay Médio:</span> 6% – 8% a.a.</li>
+                    <li><span class="font-semibold">Cap Rate Rendape Premium:</span> 9% – 12% a.a.</li>
+                    <li><span class="font-semibold">Payback Médio:</span> 10 – 12 anos</li>
+                 </ul>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="card">
+                     <h2 class="text-3xl font-bold text-white mb-4 text-center">Gestoras Parceiras (Short-Stay)</h2>
+                     <div class="overflow-x-auto">
+                        <table class="styled-table">
+                            <thead><tr><th>Empresa</th><th>Taxa Gestão</th><th>Observação Rendapê</th></tr></thead>
+                            <tbody>
+                                <tr><td>Housi</td><td>18 – 22 %</td><td>Estrutura tech, SLA < 10 min.</td></tr>
+                                <tr><td>B.Homy</td><td>18 – 25 %</td><td>Operação corp. e turística.</td></tr>
+                                <tr><td>Seazone / OKA</td><td>18 – 30 %</td><td>Modelo premium, maior ADR.</td></tr>
+                            </tbody>
+                        </table>
+                     </div>
+                </div>
+                 <div class="card">
+                     <h2 class="text-3xl font-bold text-white mb-4 text-center">Fornecedores (Decoração)</h2>
+                      <div class="overflow-x-auto">
+                        <table class="styled-table">
+                            <thead><tr><th>Categoria</th><th>Fornecedor</th><th>Observação</th></tr></thead>
+                            <tbody>
+                                <tr><td>Mobília</td><td>Mobly Empresas, Tok&Stok Corp.</td><td>Setup R$ 1.6k – 3k/m²</td></tr>
+                                <tr><td>Eletros</td><td>Fast Shop Empresas</td><td>Linha compacta hotelaria</td></tr>
+                                <tr><td>Cama/Banho</td><td>Altenburg</td><td>Padrão hoteleiro premium</td></tr>
+                                <tr><td>Manutenção</td><td>Fix / Parceiros</td><td>SLA rápido, baixo custo</td></tr>
+                            </tbody>
+                        </table>
+                     </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2 class="text-3xl font-bold text-white mb-6 text-center">Documentos Necessários</h2>
+                <div class="max-w-3xl mx-auto text-left text-[var(--cor-texto-secundario)] space-y-6">
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>CPF e Identidade</li>
+                        <li>Profissão, e-mail e telefone</li>
+                        <li>Comprovante de Residência</li>
+                        <li>Comprovante de Estado Civil</li>
+                        <li class="font-semibold text-white">Comprovante de Renda, conforme o caso:
+                            <ul class="list-disc list-inside pl-6 mt-2 space-y-1 text-[var(--cor-texto-secundario)]">
+                                <li><span class="font-semibold text-white/80">Renda Formal:</span> 03 últimos contracheques ou Declaração e Recibo do IR</li>
+                                <li><span class="font-semibold text-white/80">Renda Informal:</span> Declaração e Recibo do IR juntamente com Extrato Bancário dos últimos 06 meses ou somente o Extrato Bancário dos últimos 06 meses</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="border-t border-white/10 pt-4">
+                        <p class="font-semibold text-white">Se casado(a), enviar também os documentos do cônjuge:</p>
+                        <ul class="list-disc list-inside pl-6 mt-2 space-y-1">
+                            <li>CPF e Identidade</li>
+                            <li>Comprovante de Renda</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="text-center py-10 mt-16 border-t border-white/10">
+            <div class="flex items-center justify-center space-x-3">
+                 <img src="https://rendape.com.br/wp-content/uploads/2025/07/RendapeIcon.png" alt="Símbolo Rendapê" class="h-8">
+                <span class="text-2xl font-bold text-[var(--cor-principal)]">Rendapê</span>
+            </div>
+            <p class="text-sm text-[var(--cor-texto-secundario)] mt-2">© 2025 Rendapê. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>
